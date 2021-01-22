@@ -1,0 +1,63 @@
+{
+  "name": "@openlab/vercel-netlify-cms-github",
+  "description": "Vercel API routes to login to netlify-cms deployed on vercel",
+  "version": "0.0.0",
+  "private": true,
+  "repository": "digitalinteraction/vercel-netlify-cms-github",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "build": "tsc",
+    "lint": "tsc --noEmit",
+    "prettier": "prettier --write '**/*.{js,json,css,md,ts,tsx}'",
+    "preversion": "npm run test -s && npm run build"
+  },
+  "keywords": [],
+  "engines": {
+    "node": ">=12"
+  },
+  "dependencies": {
+    "dedent": "^0.7.0",
+    "dotenv": "^8.2.0",
+    "simple-oauth2": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/dedent": "^0.7.0",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.22",
+    "@types/simple-oauth2": "^4.1.0",
+    "@vercel/node": "^1.9.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.3",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7",
+    "yorkie": "^2.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md,ts,tsx}": [
+      "prettier --write"
+    ]
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.js"
+}

@@ -1,0 +1,21 @@
+{
+  "version": "0.5.5",
+  "projectName": "vercel-netlify-cms-github",
+  "preset": {
+    "name": "robb-j:ts-node",
+    "version": "0.2.2"
+  },
+  "plugins": {
+    "npm": "0.1.0"
+  },
+  "params": {
+    "npm": {
+      "packageName": "@openlab/vercel-netlify-cms-github",
+      "packageInfo": "Vercel API routes to login to netlify-cms deployed on vercel",
+      "repository": "digitalinteraction/vercel-netlify-cms-github"
+    },
+    "cli": {
+      "enabled": false
+    }
+  }
+}

@@ -1,0 +1,10 @@
+#
+# Files to ignore from npm
+# https://npm.github.io/publishing-pkgs-docs/publishing/the-npmignore-file.html
+#
+
+*.env
+coverage
+
+__tests__
+__mocks__
