@@ -44,6 +44,22 @@ backend:
 - **base_url** should be the full url to the root of your site, like `https://example.com/`
 - **auth_endpoint** needs to be set to link it up correctly, you can't put it in `base_url`
 
+**(optional) Configure vercel.json**
+
+If you have your admin files in a folder (e.g. `admin/index.html` and `admin/config.yml`)
+you might want to force vercel to use trailing slashes.
+This is because if you visit `/admin` netlify will look for a config at `/config.yml`,
+not in the admin folder.
+
+To solve this add (or update) your [vercel.json](https://vercel.com/docs/configuration)
+in the project root:
+
+```json
+{
+  "trailingSlash": true
+}
+```
+
 **5. Commit these endpoints to git**
 
 ```bash
