@@ -8,24 +8,32 @@ import { NowRequest, NowResponse } from '@vercel/node'
 import { randomBytes } from 'crypto'
 import { AuthorizationCode, ModuleOptions } from 'simple-oauth2'
 
-const oauthConfig: ModuleOptions = Object.freeze({
+const {
+  OAUTH_CLIENT_ID = '',
+  OAUTH_CLIENT_SECRET = '',
+  OAUTH_HOST = 'https://github.com',
+  OAUTH_TOKEN_PATH = '/login/oauth/access_token',
+  OAUTH_AUTHORIZE_PATH = '/login/oauth/authorize',
+} = process.env
+
+export const oauthConfig: ModuleOptions = Object.freeze({
   client: Object.freeze({
-    id: process.env.OAUTH_CLIENT_ID!,
-    secret: process.env.OAUTH_CLIENT_SECRET!,
+    id: OAUTH_CLIENT_ID!,
+    secret: OAUTH_CLIENT_SECRET,
   }),
   auth: Object.freeze({
-    tokenHost: `https://github.com`,
-    tokenPath: `/login/oauth/access_token`,
-    authorizePath: `/login/oauth/authorize`,
+    tokenHost: OAUTH_HOST,
+    tokenPath: OAUTH_TOKEN_PATH,
+    authorizePath: OAUTH_AUTHORIZE_PATH,
   }),
 })
 
-function randomState() {
+export function randomState() {
   return randomBytes(6).toString('hex')
 }
 
 /** Render a html response with a script to finish a client-side github authentication */
-function renderResponse(status: 'success' | 'error', content: any) {
+export function renderResponse(status: 'success' | 'error', content: any) {
   return dedent`
   <!DOCTYPE html>
   <html lang="en">
