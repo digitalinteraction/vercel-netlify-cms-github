@@ -89,6 +89,36 @@ Go to your vercel dashboard, https://vercel.com.
 
 🎉 Your site should now be linked up!
 
+## Configuration
+
+**Environment Variables**
+
+In addition to `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET`,
+this package also exposes these variables to configure the GitHub authentication.
+These all have default values configured to talk to github.com.
+
+- `OAUTH_HOST` (default: `https://github.com`)
+  The GitHub server to talk to
+- `OAUTH_TOKEN_PATH` (default: `/login/oauth/access_token`)
+  The path of the GitHub OAuth
+  [token endpoint](https://datatracker.ietf.org/doc/html/rfc6749#section-3.2)
+- `OAUTH_AUTHORIZE_PATH` (default: `/login/oauth/authorize`)
+  The path of the GitHub OAuth
+  [Authorization endpoint](https://datatracker.ietf.org/doc/html/rfc6749#section-3.1)
+
+## API usage
+
+Other than the Vercel endpoints, these are exported:
+
+- `oauthConfig` is an object with configuration for [simple-oauth2](https://www.npmjs.com/package/simple-oauth2)
+- `randomState` is a function to generate a random state for an OAuth2 flow
+- `renderResponse` is a function to generate HTML with client-side JavaScript
+  to complete the OAuth2 flow using `window.opener.postMessage`
+
+> These were primarily exposed for
+> [digitalinteraction/netlify-cms-github-auth](http://github.com/digitalinteraction/netlify-cms-github-auth)
+> to use.
+
 ---
 
 > This project was set up by [puggle](https://npm.im/puggle)
