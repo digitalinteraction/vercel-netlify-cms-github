@@ -106,6 +106,8 @@ export async function callback(req: NowRequest, res: NowResponse) {
     console.debug('callback host=%o', host)
 
     const { token } = authorizationCode.createToken(accessToken)
+    
+    res.setHeader('Content-Type', 'text/html');
 
     res.status(200).send(
       renderResponse('success', {
