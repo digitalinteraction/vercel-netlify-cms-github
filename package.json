@@ -1,7 +1,7 @@
 {
   "name": "@openlab/vercel-netlify-cms-github",
   "description": "Vercel API routes to login to netlify-cms deployed on vercel",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "repository": "digitalinteraction/vercel-netlify-cms-github",
   "author": "",
   "license": "MIT",
