@@ -9,6 +9,7 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "build": "tsc",
+    "dev": "tsc --watch --pretty --incremental",
     "lint": "tsc --noEmit",
     "prettier": "prettier --write '**/*.{js,json,css,md,ts,tsx}'",
     "preversion": "npm run test -s && npm run build"
@@ -18,12 +19,10 @@
     "node": ">=12"
   },
   "dependencies": {
-    "dedent": "^0.7.0",
     "dotenv": "^8.2.0",
     "simple-oauth2": "^4.2.0"
   },
   "devDependencies": {
-    "@types/dedent": "^0.7.0",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.22",
     "@types/simple-oauth2": "^4.1.0",
